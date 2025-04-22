@@ -5,6 +5,7 @@ fun main() {
     println("¡Hola, Kotlin!")
     primerafuncion()
     CalcRectagleArea()
+    evaluarSigno()
 }
 
 fun primerafuncion () {
@@ -31,4 +32,11 @@ fun CalcRectagleArea () {
     val Heigh: Double = 2.2
     val Area: Double = Base*Heigh
     println ("El area del rectangulo es: $Area")
+}
+
+fun esParOImpar(numero: Int): String {
+    return when {
+        numero % 2 == 0 -> "Par"
+        else -> "Impar"
+    }
 }
