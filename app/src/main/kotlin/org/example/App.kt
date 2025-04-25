@@ -7,7 +7,7 @@ fun main() {
     
     println("Paso 2: ")
     primerafuncion()
-
+    mostrarTiposDeDatos()
     CalcRectagleArea()
 
     println("Paso 3: ")
@@ -19,6 +19,11 @@ fun main() {
     println("Paso 4: ")
     mostrarNumerosConLoops()
     mostrarParesConLoops()
+
+    println("Paso 5: ")
+    factorial(3)
+    saludar("Valentino")
+    potencia(5, 3)
 }
 
 fun primerafuncion () {
@@ -107,4 +112,25 @@ fun mostrarParesConLoops() {
         println(k)
         k += 2
     } while (k <= 20)
+}
+
+fun factorial(n: Int): Int {
+    return if (n <= 1) 1 else n * factorial(n - 1)
+}
+
+fun saludar(nombre: String, edad: Int = 0) {
+        val edad: Int = 16
+    println("Hola $nombre, tienes $edad años")
+}
+
+fun potencia(base: Int, exponente: Int): Double {
+    if (exponente == 0) return 1.0
+    if (exponente < 0) return 1.0 / potencia(base, -exponente)
+    
+    var resultado = 1.0
+    for (i in 1..exponente) {
+        resultado *= base
+    }
+    println("Resultado: $resultado")
+    return resultado
 }
