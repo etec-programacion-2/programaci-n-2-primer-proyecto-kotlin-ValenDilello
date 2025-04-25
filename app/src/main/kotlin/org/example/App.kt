@@ -3,9 +3,15 @@ import java.time.LocalDate
 
 fun main() {
     println("¡Hola, Kotlin!")
+    
     primerafuncion()
+
     CalcRectagleArea()
-    evaluarSigno()
+
+    val numero = -7
+    println("Número: $numero")
+    println("¿Par o impar?: ${esParOImpar(numero)}")
+    println("Signo: ${evaluarSigno(numero)}")
 }
 
 fun primerafuncion () {
@@ -38,5 +44,15 @@ fun esParOImpar(numero: Int): String {
     return when {
         numero % 2 == 0 -> "Par"
         else -> "Impar"
+    }
+}
+
+fun evaluarSigno(numero: Int): String {
+    return if (numero > 0) {
+        "Positivo"
+    } else if (numero < 0) {
+        "Negativo"
+    } else {
+        "Cero"
     }
 }
