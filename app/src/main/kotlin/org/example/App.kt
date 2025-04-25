@@ -24,6 +24,10 @@ fun main() {
     factorial(3)
     saludar("Valentino")
     potencia(5, 3)
+
+    println("Paso 6: ")
+    demostrarAlcanceVariables()
+    calcularPromedio()
 }
 
 fun primerafuncion () {
@@ -133,4 +137,39 @@ fun potencia(base: Int, exponente: Int): Double {
     }
     println("Resultado: $resultado")
     return resultado
+}
+
+fun demostrarAlcanceVariables() {
+    // Variable local en el ámbito de la función
+    val variableGlobal = "Soy global en esta función"
+    
+    // Bloque if con su propio ámbito
+    if (true) {
+        val variableIf = "Soy local del if"
+        println("Dentro del if: $variableIf")
+        println("Puedo acceder a: $variableGlobal")
+    }
+    
+    // Bloque for con su propio ámbito
+    for (i in 1..3) {
+        val variableFor = "Soy local del for - iteración $i"
+        println("Dentro del for: $variableFor")
+        println("Puedo acceder a: $variableGlobal")
+    }
+    
+    // Intentar acceder a variables locales fuera de su ámbito
+    // println(variableIf)  // Esto daría error
+    // println(variableFor) // Esto daría error
+}
+
+fun calcularPromedio(numeros: List<Int>): Double {
+    var suma = 0  // Variable local mutable
+    var contador = 0  // Variable local mutable
+    
+    for (numero in numeros) {
+        suma += numero
+        contador++
+    }
+    
+    return if (contador > 0) suma.toDouble() / contador else 0.0
 }
