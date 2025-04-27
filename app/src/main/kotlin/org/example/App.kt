@@ -3,34 +3,31 @@ import java.time.LocalDate
 
 fun main() {
     println("Paso 1: ")
-    println("¡Hola, Kotlin!")
+    println("Hola, Kotlin!")
     
-    println("Paso 2: ")
     primerafuncion()
     mostrarTiposDeDatos()
     CalcRectagleArea()
 
-    println("Paso 3: ")
     val numero = -7
     println("Número: $numero")
     println("¿Par o impar?: ${esParOImpar(numero)}")
     println("Signo: ${evaluarSigno(numero)}")
 
-    println("Paso 4: ")
     mostrarNumerosConLoops()
     mostrarParesConLoops()
 
-    println("Paso 5: ")
     factorial(3)
     saludar("Valentino")
     potencia(5, 3)
 
-    println("Paso 6: ")
     demostrarAlcanceVariables()
-    calcularPromedio()
+    calcularPromedio(listOf(1,2,3,4,5,6,7,8,9,10))
+    encontrarMaximoMinimo(listOf(1,2,3,4,5,6,7,8,9,10))
 }
-
+//Paso 2:
 fun primerafuncion () {
+    println("Paso 2: ")
     val nombre = "Valentino"
     val apellido = "Dilello"
     val fechaActual = LocalDate.now ()
@@ -55,8 +52,9 @@ fun CalcRectagleArea () {
     val Area: Double = Base*Heigh
     println ("El area del rectangulo es: $Area")
 }
-
+//Paso 3:
 fun esParOImpar(numero: Int): String {
+    println("Paso 3: ")
     return when {
         numero % 2 == 0 -> "Par"
         else -> "Impar"
@@ -72,8 +70,9 @@ fun evaluarSigno(numero: Int): String {
         "Cero"
     }
 }
-
+//Paso 4:
 fun mostrarNumerosConLoops() {
+    println("Paso 4: ")
     // Usando for
     println("Usando for:")
     for (i in 1..10) {
@@ -119,6 +118,7 @@ fun mostrarParesConLoops() {
 }
 
 fun factorial(n: Int): Int {
+    println("Paso 5: ")
     return if (n <= 1) 1 else n * factorial(n - 1)
 }
 
@@ -140,6 +140,7 @@ fun potencia(base: Int, exponente: Int): Double {
 }
 
 fun demostrarAlcanceVariables() {
+    println("Paso 6: ")
     // Variable local en el ámbito de la función
     val variableGlobal = "Soy global en esta función"
     
@@ -172,4 +173,30 @@ fun calcularPromedio(numeros: List<Int>): Double {
     }
     
     return if (contador > 0) suma.toDouble() / contador else 0.0
+}
+
+fun encontrarMaximoMinimo(numeros: List<Int>): Pair<Int, Int> {
+    // Verificar si la lista está vacía
+    if (numeros.isEmpty()) {
+        throw IllegalArgumentException("La lista no puede estar vacía")
+    }
+    
+    // Variables locales para almacenar el máximo y mínimo
+    var maximo = numeros[0]
+    var minimo = numeros[0]
+    
+    // Iterar sobre la lista para encontrar máximo y mínimo
+    for (numero in numeros) {
+        if (numero > maximo) {
+            maximo = numero
+        }
+        if (numero < minimo) {
+            minimo = numero
+        }
+    }
+    
+    // Retornar ambos valores como un par
+    println("El número más grande es: $maximo")
+    println("El número más pequeño es: $minimo")
+    return Pair(maximo, minimo)
 }
